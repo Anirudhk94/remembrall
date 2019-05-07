@@ -1,0 +1,54 @@
+{
+  "name": "Remembrall - Password manager with hightened senses",
+  "version": "1.0",
+  "description": "Chrome extension for a password manager that warns user for password reuse, phishing attacks, and malicious links.",
+  "manifest_version": 2,
+  "minimum_chrome_version": "30",
+  "author": "Shubham Jindal, Shivasagar, Anirudh",
+  "homepage_url": "https://github.com/sjindal94/remembrall",
+  "browser_action": {
+    "default_title": "Click to set behaviour of Remembrall",
+    "default_popup": "extension_popup.html",
+    "default_icon": {
+      "128": "icon/remembralloff_128x128.png"
+    }
+  },
+  "icons": {
+    "128": "icon/remembrallon_128x128.png"
+  },
+  "background": {
+    "scripts": [
+      "lib/jquery.min.js",
+      "lib/pouchdb-7.0.0.min.js",
+      "lib/pbkdf2.js",
+      "lib/pouchdb.quick-search.min.js",
+      "lib/jquery.csv.min.js",
+      "js/bg_utils.js",
+      "js/credential_store.js",
+      "js/web_store.js",
+      "js/background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "lib/jquery.min.js",
+        "lib/pbkdf2.js",
+        "js/bg_utils.js",
+        "js/credential_store.js",
+        "js/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "<all_urls>"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
