@@ -49,10 +49,4 @@ A number of manual tests was performed to make sure the app is working as expect
 
 ## Authors
 
-* [Shubham Jindal](https://github.com/sjindal94)
 * Anirudh Kulkarni
-* Shivasagar Boraiah
-
-## License
-
-## Acknowledgments
